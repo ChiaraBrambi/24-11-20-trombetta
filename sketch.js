@@ -148,13 +148,13 @@ if (p_coord === 100){
   textSize(16);
   fill('#B7AEB5'); //3 PALETTE
 //TUTORIAL TROMBETTA
-if(i<2){
+if(i<3 || i==3){
 image(tutIcon, width / 2, height / 2, tutIcon.width / 5, tutIcon.height / 5);
 text('TUTORIAL', width / 2, height / 6*3.5);
 }
 
 //ICONE NORMALI
-if (keyIsDown(ENTER) && i>2) {
+if (keyIsDown(ENTER) && i>3) {
     push();
     fill('#877B85');
     noStroke();
@@ -162,7 +162,7 @@ if (keyIsDown(ENTER) && i>2) {
     ellipse(width / 2, height / 2, 100); //cerchio centrale
     image(trombaIcon, width / 2, height / 2, trombaIcon.width / 7, trombaIcon.height / 7);
     pop();
-  }else if (keyIsDown(ENTER)==false && i>2){//cambio colore dle bottone centrale: feedback utente
+  }else if (keyIsDown(ENTER)==false && i>3){//cambio colore dle bottone centrale: feedback utente
   push();
   noFill();
   stroke('#877B85');
