@@ -6,7 +6,7 @@ let portName = '/dev/tty.usbmodem14101'; // fill in your serial port name here
 let inData; // for incoming serial data
 
 //trombetta ICONE
-let trombaIcon, tscuraIcon, tut1Icon, tut2Icon, logor,freccia; //icone
+let trombaIcon, tscuraIcon, tutIcon, logor,freccia; //icone
 let xBarra = 20; //lunghezza barra %
 let w, h; //posizione
 let s=0;//ellisse BONUS
@@ -25,9 +25,8 @@ let n_interazione = 0; //var utente usa la trobetta, preme bottone
 
 function preload() {
   trombaIcon = loadImage("./assets/immagini/trombettaBianca.png"); //trombetta chiara
-  tscuraIcon = loadImage("./assets/immagini/tscura.png"); //trombetta chiara
-  tut1Icon = loadImage("./assets/immagini/Trombetta_tut_1.png");//trombetta tutorial 1
-  tut2Icon = loadImage("./assets/immagini/Trombetta_tut_2.gif");//trombetta tutorial 2
+  tscuraIcon = loadImage("./assets/immagini/tscura.png"); //trombetta scura
+  tutIcon = loadImage("./assets/immagini/Tutorial_Trombetta.gif");//trombetta tutorial 1
   logor = loadImage("./assets/immagini/logopiccolo.png");//logo ridotto
   freccia = loadImage("./assets/immagini/freccia.png");
 }
@@ -52,7 +51,7 @@ function setup() {
 
 /////////////////////////////////////////////////////////////////////////
 function draw() {
-  background('#F9F9F9'); //chiaro
+  background('#F9F9F8'); //chiaro
   imageMode(CENTER); //per pittogrammi
   noStroke();
 
@@ -135,6 +134,7 @@ if (p_coord === 100){
     text(p_coord + '%',w+(width/28), h*6.5 ); //w, height / 5 * 4.5
     // console.log(' interazione ' + n_interazione);
     // console.log(' trombetta ' + n_trombetta);
+
   //PER LA BARRA DELLA PERCENTUALE
   //interazione utente, temporaneamente tasto ENTER
   if (alt != 1 & keyIsDown(ENTER)) {
@@ -148,11 +148,8 @@ if (p_coord === 100){
   textSize(16);
   fill('#B7AEB5'); //3 PALETTE
 //TUTORIAL TROMBETTA
-if(i== 0 || i==2){
-image(tut1Icon, width / 2, height / 2, tut1Icon.width / 7, tut1Icon.height / 7);
-text('TUTORIAL', width / 2, height / 6*3.5);
-} else if (i==1 || i==3){
-image(tut2Icon, width / 2, height / 2, tut2Icon.width / 7, tut2Icon.height / 7);
+if(i== 0 || i==1|| i==2 ||i==3){
+image(tutIcon, width / 2, height / 2, tutIcon.width / 5, tutIcon.height / 5);
 text('TUTORIAL', width / 2, height / 6*3.5);
 }
 
