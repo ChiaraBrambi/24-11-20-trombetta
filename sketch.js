@@ -15,6 +15,7 @@ let s=0;//ellisse BONUS
 let alt = 1; //h dei rettangoli suono
 let i = 0; //regola ogni quanto cambia alt
 let p_coord = 0; //var coordinazione
+let contBonus = 0;//conta quando p_coord arriva a 100
 
 let n_trombetta = 0; //var piattaforma: quando alt!=1 viene incrementata
 let n_interazione = 0; //var utente usa la trobetta, preme bottone
@@ -92,12 +93,21 @@ function draw() {
   rect(w-width/7, h*7-7.5, xBarra ,15, 20);
   pop();
 
+
+//BONUS
+if (p_coord === 100){
+    contBonus++;}
+    console.log('BONUS CONTATOR:'+ contBonus);
 //pallini BONUS
   for(let i=0; i<6;i++){
-    ellipse(width/11 + s , h*7 , 15);
-    s =25*i;
+    if(contBonus === 2){
+      fill('#877B85');
+      ellipse(width/11 + s , h*7 , 15);
+      fill('#D5D0D3');
+    }else{
+      ellipse(width/11 + s , h*7 , 15);
+    s =25*i;}
     }
-
 
 
 //BARRE DEL SUONO TROMBETTA
