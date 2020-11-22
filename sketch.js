@@ -51,7 +51,7 @@ function setup() {
 
 /////////////////////////////////////////////////////////////////////////
 function draw() {
-  background('#F9F9F8'); //chiaro
+  background('#F9F9F9'); //chiaro
   imageMode(CENTER); //per pittogrammi
   noStroke();
 
