@@ -93,8 +93,8 @@ function draw() {
   pop();
 
 
-//BONUS
-if (p_coord === 50){
+///////////////BONUS//////////////////////////////////////////////////////////////
+if (p_coord === 90){
     contBonus++;}
     console.log('BONUS CONTATOR:'+ contBonus);
 
@@ -122,7 +122,7 @@ if (p_coord === 50){
     ellipse(width/11 + s , h*7 , 15);
     s =25*i;
     }
-
+///////////////////////////////////////////////////////////////
 
 //BARRE DEL SUONO TROMBETTA
   if (frameCount % 50 == 0) { //multiplo di 50 incrementa i
@@ -153,7 +153,7 @@ if (p_coord === 50){
   //PER LA BARRA DELLA PERCENTUALE
   //interazione utente, temporaneamente tasto ENTER
   if (alt != 1 & keyIsDown(ENTER)) {
-    n_interazione += 4; // per far tornare la percentuale in pai alla trombetta
+    n_interazione += 8; // per far tornare la percentuale in pari alla trombetta
     p_coord = round((n_interazione / n_trombetta) * 100);
   } else if (alt = 1) {
     n_interazione = 0;
