@@ -24,8 +24,8 @@ let n_interazione = 0; //var utente usa la trobetta, preme bottone
 /////////////////////////////////////////////////////////////////////////
 
 function preload() {
-  trombaIcon = loadImage("./assets/immagini/trombettaBianca.png"); //trombetta chiara
-  tscuraIcon = loadImage("./assets/immagini/tscura.png"); //trombetta scura
+  trombaIcon = loadImage("./assets/immagini/trombettaB.png"); //trombetta chiara
+  tscuraIcon = loadImage("./assets/immagini/trombetta.png"); //trombetta scura
   tutIcon = loadImage("./assets/immagini/Tutorial_Trombetta.gif");//trombetta tutorial 1
   logor = loadImage("./assets/immagini/logopiccolo.png");//logo ridotto
   freccia = loadImage("./assets/immagini/freccia.png");
@@ -166,7 +166,7 @@ if (p_coord === 90){
 if(i==0 || i<3 || i==3){
 image(tutIcon, width / 2, height / 2, tutIcon.width / 5, tutIcon.height / 5);
 //text('TUTORIAL', width /20*10, height / 6*3.9);
-text('Segui la voce degli altri', w, height / 6*3.7);
+text('Segui il ritmo degli altri', w, height / 6*3.7);
 }
 
 //ICONE NORMALI
@@ -176,7 +176,7 @@ if (keyIsDown(ENTER) && i>3) {
     noStroke();
     strokeWeight(5);
     ellipse(width / 2, height / 2, 100); //cerchio centrale
-    image(trombaIcon, width / 2, height / 2, trombaIcon.width / 7, trombaIcon.height / 7);
+    image(trombaIcon, width / 2, height / 2, trombaIcon.width / 1.7, trombaIcon.height / 1.7);
     pop();
   }else if (keyIsDown(ENTER)==false && i>3){//cambio colore dle bottone centrale: feedback utente
   push();
@@ -184,7 +184,7 @@ if (keyIsDown(ENTER) && i>3) {
   stroke('#877B85');
   strokeWeight(5);
   ellipse(width / 2, height / 2, 100); //cerchio centrale
-  image(tscuraIcon, width / 2, height / 2, tscuraIcon.width / 7, tscuraIcon.height / 7); // trombetta scura
+  image(tscuraIcon, width / 2, height / 2, tscuraIcon.width / 1.7, tscuraIcon.height / 1.7); // trombetta scura
   pop();}
 }
 
