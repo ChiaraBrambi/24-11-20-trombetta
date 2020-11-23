@@ -120,7 +120,7 @@ if (p_coord === 100){
       n_trombetta++;
     } else {
       alt = 1;
-      n_trombetta = 0.1;
+      n_trombetta = 0;
     }
     //liniette suono della trombetta
     noStroke();
@@ -131,9 +131,9 @@ if (p_coord === 100){
   }
 
   //PERCENTUALE
-    text(p_coord + '%',w+(width/28), h*6.5 ); //w, height / 5 * 4.5
-    // console.log(' interazione ' + n_interazione);
-    // console.log(' trombetta ' + n_trombetta);
+    text(p_coord + '%', w + (width/28), h*6.5 ); //w, height / 5 * 4.5
+     console.log(' interazione ' + n_interazione);
+     console.log(' trombetta ' + n_trombetta);
 
   //PER LA BARRA DELLA PERCENTUALE
   //interazione utente, temporaneamente tasto ENTER
@@ -148,9 +148,9 @@ if (p_coord === 100){
   textSize(16);
   fill('#B7AEB5'); //3 PALETTE
 //TUTORIAL TROMBETTA
-if(i<3 || i==3){
+if(i==0 || i<3 || i==3){
 image(tutIcon, width / 2, height / 2, tutIcon.width / 5, tutIcon.height / 5);
-text('TUTORIAL', width /20*10, height / 6*3.9);
+//text('TUTORIAL', width /20*10, height / 6*3.9);
 text('Segui la voce degli altri', w, height / 6*3.7);
 }
 
