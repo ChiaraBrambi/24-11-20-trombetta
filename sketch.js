@@ -94,18 +94,33 @@ function draw() {
 
 
 //BONUS
-if (p_coord === 100){
+if (p_coord === 50){
     contBonus++;}
     console.log('BONUS CONTATOR:'+ contBonus);
+
 //pallini BONUS
   for(let i=0; i<6;i++){
-    if(contBonus === 2){
+    if(contBonus === 2 ||contBonus === 3){
+      push();
       fill('#877B85');
-      ellipse(width/11 + s , h*7 , 15);
-      fill('#D5D0D3');
-    }else{
-      ellipse(width/11 + s , h*7 , 15);
-    s =25*i;}
+      ellipse(width/11 , h*7 , 15);
+      pop();
+    }else if(contBonus === 4 ||contBonus === 5 || contBonus === 6||contBonus === 7){
+      push();
+      fill('#877B85');
+      ellipse(width/11 , h*7 , 15);
+      ellipse(width/11+25 , h*7 , 15);
+      pop();
+    }else if (contBonus === 8||contBonus === 9) {
+      push();
+      fill('#877B85');
+      ellipse(width/11 , h*7 , 15);
+      ellipse(width/11+25 , h*7 , 15);
+      ellipse(width/11+50 , h*7 , 15);
+      pop();
+    }
+    ellipse(width/11 + s , h*7 , 15);
+    s =25*i;
     }
 
 
@@ -139,7 +154,7 @@ if (p_coord === 100){
   //interazione utente, temporaneamente tasto ENTER
   if (alt != 1 & keyIsDown(ENTER)) {
     n_interazione += 4; // per far tornare la percentuale in pai alla trombetta
-    p_coord = round((n_interazione / n_trombetta) * 100) * 2;
+    p_coord = round((n_interazione / n_trombetta) * 100);
   } else if (alt = 1) {
     n_interazione = 0;
     p_coord = 0;
