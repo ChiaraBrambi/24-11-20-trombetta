@@ -150,7 +150,8 @@ if (p_coord === 100){
 //TUTORIAL TROMBETTA
 if(i<3 || i==3){
 image(tutIcon, width / 2, height / 2, tutIcon.width / 5, tutIcon.height / 5);
-text('TUTORIAL', width / 2, height / 6*3.5);
+text('TUTORIAL', width /20*10, height / 6*3.9);
+text('Segui la voce degli altri', w, height / 6*3.7);
 }
 
 //ICONE NORMALI
