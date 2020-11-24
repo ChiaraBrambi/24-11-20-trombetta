@@ -172,10 +172,10 @@ if (p_coord === 90){
 //}
 //TUTORIAL TROMBETTA
 if(i== 0 || i==2){
-image(tut1Icon, width / 2, height / 2, tut1Icon.width / 7, tut1Icon.height / 7);
+image(tut1Icon, width /2, height / 2, tut1Icon.width / 5, tut1Icon.height / 5);
 text('Segui il ritmo degli altri', w, height / 6*3.7);
 } else if (i==1 || i==3){
-image(tut2Icon, width / 2, height / 2, tut2Icon.width / 7, tut2Icon.height / 7);
+image(tut2Icon, width / 2, height / 2, tut2Icon.width / 5, tut2Icon.height / 5);
 text('Segui il ritmo degli altri', w, height / 6*3.7);
 }
 //ICONE NORMALI
