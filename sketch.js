@@ -167,16 +167,18 @@ if (p_coord === 90){
 // //TUTORIAL TROMBETTA
 // if(i==0 || i<3 || i==3){
 // image(tutIcon, width / 2, height / 2, tutIcon.width / 5, tutIcon.height / 5);
-// //text('TUTORIAL', width /20*10, height / 6*3.9);
+
 // text('Segui il ritmo degli altri', w, height / 6*3.7);
 //}
 //TUTORIAL TROMBETTA
 if(i== 0 || i==2){
 image(tut1Icon, width /2, height / 2, tut1Icon.width / 5, tut1Icon.height / 5);
 text('Segui il ritmo degli altri', w, height / 6*3.7);
+text('TUTORIAL', width /20*10, height / 6*3.9);
 } else if (i==1 || i==3){
 image(tut2Icon, width / 2, height / 2, tut2Icon.width / 5, tut2Icon.height / 5);
 text('Segui il ritmo degli altri', w, height / 6*3.7);
+text('TUTORIAL', width /20*10, height / 6*3.9);
 }
 //ICONE NORMALI
 if (keyIsDown(ENTER) && i>3) {
