@@ -21,6 +21,9 @@ let feed_piattaforma = 0 ; //n_trombetta = 0; //var piattaforma: quando alt!=1 v
 let input_utente = 200 //n_interazione = 0; //var utente usa la trobetta, preme bottone
 //se faccio ntrombetta/niterazione trovo la coordinazione
 
+
+let opacità = 210 //opacità rettangolo tutorial
+let pronto //coordinzaione tutorial
 /////////////////////////////////////////////////////////////////////////
 
 function preload() {
@@ -167,19 +170,10 @@ function draw() {
 
   textSize(16);
   fill('#B7AEB5'); //3 PALETTE
-  //TUTORIAL TROMBETTA
-  if (i == 0 || i == 2) {
-    image(tut1Icon, width / 2, height / 2, tut1Icon.width / 5, tut1Icon.height / 5);
-    text('Segui il ritmo degli altri',  w*10, h*31);
-    text('TUTORIAL', width / 20 * 10, height / 6 * 3.9);
-  } else if (i == 1 || i == 3) {
-    image(tut2Icon, width / 2, height / 2, tut2Icon.width / 5, tut2Icon.height / 5);
-    text('Segui il ritmo degli altri',  w*10, h*31);
-    text('TUTORIAL', width / 20 * 10, height / 6 * 3.9);
-  }
+
 
   //ICONA FEEDBACK DA SEGUIRE
-  if (i % 2 != 0 && i>3) {
+  if (i % 2 != 0 && i>5) {
     push();
     fill('#877B85');
     noStroke();
@@ -188,7 +182,7 @@ function draw() {
     image(trombaIcon, width / 2, height / 2, trombaIcon.width / 1.7, trombaIcon.height / 1.7);
     pop();
     feed_piattaforma++;
-  } else if (i % 2 == 0 && i>3){ //cambio colore delle bottone centrale: feedback utente
+  } else if (i % 2 == 0 && i>5){ //cambio colore delle bottone centrale: feedback utente
     push();
     fill('#F9F9F9');
     stroke('#877B85');
@@ -198,7 +192,40 @@ function draw() {
     pop();
     feed_piattaforma = 0;
   }
-}
+
+
+//rettangolo in opacità
+  push();
+  rectMode(CORNER)
+  fill(255,255,255, opacità);
+  rect(0, 0, width, height);
+  //rettangolo diventta trasparente alla fine del tutorial
+  if (i>5){
+    opacità = 0
+  }
+  pop();
+
+  //TUTORIAL TROMBETTA + TESTI GIUSTO/SBAGLATO
+  if (i == 0 || i == 2 || i == 4) {
+    image(tut1Icon, width / 2, height / 2, tut1Icon.width / 5, tut1Icon.height / 5);
+    text('Segui il ritmo degli altri',  w*10, h*31);
+      let pronto = false;
+    if(keyIsDown(ENTER)){
+      text('NON COORDINATO.',  w*10,height / 6 * 3.9);
+    }
+  } else if (i == 1 || i == 3 || i == 5) {
+    image(tut2Icon, width / 2, height / 2, tut2Icon.width / 5, tut2Icon.height / 5);
+    text('Segui il ritmo degli altri',  w*10, h*31);
+    let pronto = true;
+    if(keyIsDown(ENTER)){
+      text('CORRETTO.',  w*10, height / 6 * 3.9);
+    }
+  }
+
+  }
+  ///////FINE DRAW/////////////////
+
+
   // function SERIAL
   function serverConnected() {
     console.log('connected to server.');
