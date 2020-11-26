@@ -56,8 +56,8 @@ function draw() {
   imageMode(CENTER); //per pittogrammi
   noStroke();
 
-  w = width / 2;
-  h = height / 8;
+  w = width / 20;
+  h = height / 50;
 
   //testo caratteristiche
   textFont('quicksand');
@@ -67,35 +67,34 @@ function draw() {
   //testo centrale
   textSize(16);
   fill('#877B85'); //4° colore PALETTE
-  text('PARTITA COOD O1', width /20*10, height / 50*5);
+  text('PARTITA COOD O1', w*10, h*5);
   fill('#B7AEB5'); //3° PALETTE
   textSize(13);
-  text('SQUADRA1-SQUADRA2', width /20*10, height / 50*6.5);
-
-  //logo a destra
-  image(logor, width / 20 * 18.5, height / 50*6, logor.width / 4.5, logor.height / 4.5);
-  //freccia
-  image(freccia, width / 20, height / 50*6, freccia.width / 6, freccia.height / 6);
-
+  text('SQUADRA1-SQUADRA2', w*10, h*6.5);
   //testo sotto
   textSize(14);
-  text('COORDINAZIONE', w - 30, h * 6.5);
-  text('BONUS',width / 20, height / 50*43.5);
+  textAlign(CORNER);
+  text('BONUS',w*1.2, h*43);
+
+  //logo a destra
+  image(logor, w * 18.5, h*6, logor.width / 4.5, logor.height / 4.5);
+  //freccia
+  image(freccia, w, h*6, freccia.width / 6, freccia.height / 6);
 
   //BARRA
   fill('#D5D0D3'); //barre grige
   rectMode(CENTER);
-  rect(w, h * 7, width / 3.5, 15, 20); //rect(x,y,w,h,[tl])
+  rect(w*10, h*45.5, width / 3.5, 15, 20); //rect(x,y,w,h,[tl])
   xBarra = ((width / 3.5) / 100) * p_coord; //altezza barra %, xTot= 439 = width / 3.5
   push();
   rectMode(CORNER);
   fill('#877B85'); //barre viola
   //width/7 è la metà della barra, che è lunga width/3.5
-  rect(w - width / 7, h * 7 - 7.5, xBarra, 15, 20);
+  rect(w*10 - width / 7, h*45.5-7.5 , xBarra, 15, 20);
   pop();
 
-
   ///////////////BONUS//////////////////////////////////////////////////////////////
+
   if (p_coord === 80) {
     contBonus++;
   }
@@ -106,23 +105,23 @@ function draw() {
     if (contBonus === 2 || contBonus === 3) {
       push();
       fill('#877B85');
-      ellipse(width / 11, h * 7, 15);
+      ellipse(w, h*45.5, 15);
       pop();
     } else if (contBonus === 4 || contBonus === 5 || contBonus === 6 || contBonus === 7) {
       push();
       fill('#877B85');
-      ellipse(width / 11, h * 7, 15);
-      ellipse(width / 11 + 25, h * 7, 15);
+      ellipse(w, h*45.5, 15);
+      ellipse(w+ 25, h*45.5, 15);
       pop();
     } else if (contBonus === 8 || contBonus === 9) {
       push();
       fill('#877B85');
-      ellipse(width / 11, h * 7, 15);
-      ellipse(width / 11 + 25, h * 7, 15);
-      ellipse(width / 11 + 50, h * 7, 15);
+      ellipse(w, h*45.5, 15);
+      ellipse(w + 25,h*45.5, 15);
+      ellipse(w+ 50, h*45.5, 15);
       pop();
     }
-    ellipse(width / 11 + s, h * 7, 15);
+    ellipse(w + s, h*45.5, 15);
     s = 25 * i;
   }
   ///////////////////////////////////////////////////////////////
@@ -133,21 +132,21 @@ function draw() {
   }
 
   // BARRETTE FEED UTENTE (LINETTE)
-  for (var x = width / 6 * 1.5; x < width / 2.2; x += 40) {
-    if (keyIsDown(ENTER)) {
-      alt = 1 * random(2, 10);
-      //input_utente++;
-      input_utente=200;
-    } else {
-      alt = 1;
-      input_utente=0;
-    }
-    noStroke();
-    fill(135, 123, 133);
-    rectMode(CENTER);
-    rect(x, height / 2, 15, 15 * alt, 20);
-    rect(x + width / 3.15, height / 2, 15, 15 * alt, 20);
-  }
+  for (var x = w *3.8 ; x < w*8.8; x += 40) {
+    //  for (var q = w *11 ; q < w*16; q += 40) {
+          if (keyIsDown(ENTER)) {
+            alt = 1 * random(1,8.5);
+            input_utente=200;
+          } else {
+            alt = 1;
+            input_utente=0;
+          }
+            noStroke();
+            fill(135, 123, 133);
+            rectMode(CENTER);
+            rect(x, h*25, 15, 15 * alt, 20);
+            rect(w*7.7+x, h*25, 15, 15 * alt, 20);
+          }
 
   //PER LA BARRA DELLA PERCENTUALE
   if (keyIsDown(ENTER)) {
@@ -157,20 +156,25 @@ function draw() {
   }
 
   //PERCENTUALE
-  text(p_coord + '%', w + (width / 28), h * 6.5); //w, height / 5 * 4.5
+  push();
+    //testo sotto
+    textAlign(CORNER);
+    fill('#B7AEB5'); //3° PALETTE
+    text('COORDINAZIONE  ' + p_coord + ' %', w*10, h*43);
     //console.log('input_utente: ' + input_utente);
-   //console.log('feed_piattaforma: ' + feed_piattaforma);//max 50
+    //console.log('feed_piattaforma: ' + feed_piattaforma);//max 50
+  pop();
 
   textSize(16);
   fill('#B7AEB5'); //3 PALETTE
   //TUTORIAL TROMBETTA
   if (i == 0 || i == 2) {
     image(tut1Icon, width / 2, height / 2, tut1Icon.width / 5, tut1Icon.height / 5);
-    text('Segui il ritmo degli altri', w, height / 6 * 3.7);
+    text('Segui il ritmo degli altri',  w*10, h*31);
     text('TUTORIAL', width / 20 * 10, height / 6 * 3.9);
   } else if (i == 1 || i == 3) {
     image(tut2Icon, width / 2, height / 2, tut2Icon.width / 5, tut2Icon.height / 5);
-    text('Segui il ritmo degli altri', w, height / 6 * 3.7);
+    text('Segui il ritmo degli altri',  w*10, h*31);
     text('TUTORIAL', width / 20 * 10, height / 6 * 3.9);
   }
 
@@ -186,7 +190,7 @@ function draw() {
     feed_piattaforma++;
   } else if (i % 2 == 0 && i>3){ //cambio colore delle bottone centrale: feedback utente
     push();
-    noFill();
+    fill('#F9F9F9');
     stroke('#877B85');
     strokeWeight(5);
     ellipse(width / 2, height / 2, 100); //cerchio centrale
