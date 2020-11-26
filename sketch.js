@@ -72,6 +72,7 @@ function draw() {
   fill('#B7AEB5'); //3° PALETTE
   textSize(13);
   text('SQUADRA1-SQUADRA2', w*10, h*6.5);
+  
   //testo sotto
   textSize(14);
   textAlign(CORNER);
@@ -82,14 +83,14 @@ function draw() {
   //freccia
   image(freccia, w, h*6, freccia.width / 6, freccia.height / 6);
 
-  //BARRA
-  fill('#D5D0D3'); //barre grige
+  //BARRA COORDINAZIONE
+  fill('#D5D0D3'); //barra grigia
   rectMode(CENTER);
   rect(w*10, h*45.5, width / 3.5, 15, 20); //rect(x,y,w,h,[tl])
   xBarra = ((width / 3.5) / 100) * p_coord; //altezza barra %, xTot= 439 = width / 3.5
   push();
   rectMode(CORNER);
-  fill('#877B85'); //barre viola
+  fill('#877B85'); //barra viola
   //width/7 è la metà della barra, che è lunga width/3.5
   rect(w*10 - width / 7, h*45.5-7.5 , xBarra, 15, 20);
   pop();
@@ -169,7 +170,6 @@ function draw() {
   textSize(16);
   fill('#B7AEB5'); //3 PALETTE
 
-
   //ICONA FEEDBACK DA SEGUIRE
   if (i % 2 != 0 && i>5) {
     push();
@@ -190,7 +190,6 @@ function draw() {
     pop();
     feed_piattaforma = 0;
   }
-
 
 //rettangolo in opacità
   push();
