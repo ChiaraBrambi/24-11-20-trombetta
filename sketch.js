@@ -17,10 +17,8 @@ let i = 0; //regola ogni quanto cambia alt
 let p_coord = 0; //var coordinazione
 let contBonus = 0; //conta quando p_coord arriva a 100
 
-let feed_piattaforma = 0 ; //n_trombetta = 0; //var piattaforma: quando alt!=1 viene incrementata
-let input_utente = 200 //n_interazione = 0; //var utente usa la trobetta, preme bottone
-//se faccio ntrombetta/niterazione trovo la coordinazione
-
+let feed_piattaforma = 0 ; //var piattaforma: quando alt!=1 viene incrementata
+let input_utente = 200 //var utente usa la trobetta, preme bottone
 
 let opacità = 210 //opacità rettangolo tutorial
 let pronto //coordinzaione tutorial
@@ -207,18 +205,18 @@ function draw() {
 
   //TUTORIAL TROMBETTA + TESTI GIUSTO/SBAGLATO
   if (i == 0 || i == 2 || i == 4) {
-    image(tut1Icon, width / 2, height / 2, tut1Icon.width / 5, tut1Icon.height / 5);
+    image(tut1Icon, w*10, h*24.5 , tut1Icon.width / 5.5, tut1Icon.height /  5.5);
     text('Segui il ritmo degli altri',  w*10, h*31);
       let pronto = false;
     if(keyIsDown(ENTER)){
-      text('NON COORDINATO.',  w*10,height / 6 * 3.9);
+      text('NON COORDINATO',  w*10,h*33);
     }
   } else if (i == 1 || i == 3 || i == 5) {
-    image(tut2Icon, width / 2, height / 2, tut2Icon.width / 5, tut2Icon.height / 5);
+    image(tut2Icon,  w*10, h*24.5 , tut2Icon.width / 5.5 , tut2Icon.height / 5.5);
     text('Segui il ritmo degli altri',  w*10, h*31);
     let pronto = true;
     if(keyIsDown(ENTER)){
-      text('CORRETTO.',  w*10, height / 6 * 3.9);
+      text('CORRETTO',  w*10,h*33);
     }
   }
 
