@@ -72,7 +72,7 @@ function draw() {
   fill('#B7AEB5'); //3° PALETTE
   textSize(13);
   text('SQUADRA1-SQUADRA2', w*10, h*6.5);
-  
+
   //testo sotto
   textSize(14);
   textAlign(CORNER);
@@ -135,7 +135,6 @@ function draw() {
 
   // BARRETTE FEED UTENTE (LINETTE)
   for (var x = w *3.8 ; x < w*8.8; x += 40) {
-    //  for (var q = w *11 ; q < w*16; q += 40) {
           if (keyIsDown(ENTER)) {
             alt = 1 * random(1,8.5);
             input_utente=200;
@@ -159,17 +158,13 @@ function draw() {
 
   //PERCENTUALE
   push();
-    //testo sotto
     textAlign(CORNER);
     fill('#B7AEB5'); //3° PALETTE
     text('COORDINAZIONE  ' + p_coord + ' %', w*10, h*43);
-    //console.log('input_utente: ' + input_utente);
-    //console.log('feed_piattaforma: ' + feed_piattaforma);//max 50
   pop();
 
   textSize(16);
   fill('#B7AEB5'); //3 PALETTE
-
   //ICONA FEEDBACK DA SEGUIRE
   if (i % 2 != 0 && i>5) {
     push();
