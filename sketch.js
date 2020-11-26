@@ -67,19 +67,20 @@ function draw() {
   //testo centrale
   textSize(16);
   fill('#877B85'); //4° colore PALETTE
-  text('PARTITA COOD O1', w, height / 11);
+  text('PARTITA COOD O1', width /20*10, height / 50*5);
   fill('#B7AEB5'); //3° PALETTE
-  text('SQUADRA1-SQUADRA2', w, h);
+  textSize(13);
+  text('SQUADRA1-SQUADRA2', width /20*10, height / 50*6.5);
 
   //logo a destra
-  image(logor, width / 11 * 9.8, height / 9, logor.width / 4.5, logor.height / 4.5);
+  image(logor, width / 20 * 18.5, height / 50*6, logor.width / 4.5, logor.height / 4.5);
   //freccia
-  image(freccia, width / 11, height / 9, freccia.width / 6, freccia.height / 6);
+  image(freccia, width / 20, height / 50*6, freccia.width / 6, freccia.height / 6);
 
   //testo sotto
   textSize(14);
   text('COORDINAZIONE', w - 30, h * 6.5);
-  text('BONUS', width / 11 + 15, h * 6.5);
+  text('BONUS',width / 20, height / 50*43.5);
 
   //BARRA
   fill('#D5D0D3'); //barre grige
