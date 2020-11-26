@@ -157,8 +157,8 @@ function draw() {
 
   //PERCENTUALE
   text(p_coord + '%', w + (width / 28), h * 6.5); //w, height / 5 * 4.5
-    console.log('input_utente: ' + input_utente);
-   console.log('feed_piattaforma: ' + feed_piattaforma);//max 50
+    //console.log('input_utente: ' + input_utente);
+   //console.log('feed_piattaforma: ' + feed_piattaforma);//max 50
 
   textSize(16);
   fill('#B7AEB5'); //3 PALETTE
