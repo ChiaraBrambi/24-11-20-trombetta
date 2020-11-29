@@ -97,36 +97,44 @@ function draw() {
 
   ///////////////BONUS//////////////////////////////////////////////////////////////
 
-  if (p_coord === 80) {
-    contBonus++;
-  }
-  console.log('BONUS CONTATOR:' + contBonus);
-
-  //pallini BONUS
-  for (let i = 0; i < 6; i++) {
-    if (contBonus === 2 || contBonus === 3) {
-      push();
-      fill('#877B85');
-      ellipse(w, h*45.5, 15);
-      pop();
-    } else if (contBonus === 4 || contBonus === 5 || contBonus === 6 || contBonus === 7) {
-      push();
-      fill('#877B85');
-      ellipse(w, h*45.5, 15);
-      ellipse(w+ 25, h*45.5, 15);
-      pop();
-    } else if (contBonus === 8 || contBonus === 9) {
-      push();
-      fill('#877B85');
-      ellipse(w, h*45.5, 15);
-      ellipse(w + 25,h*45.5, 15);
-      ellipse(w+ 50, h*45.5, 15);
-      pop();
+    if (p_coord === 80) {
+      contBonus++;
     }
-    ellipse(w + s, h*45.5, 15);
-    s = 25 * i;
-  }
-  ///////////////////////////////////////////////////////////////
+    console.log('BONUS CONTATOR:' + contBonus);
+
+    //pallini BONUS
+    for (let i = 0; i < 6; i++) {
+      if (contBonus === 3 || contBonus === 4 ||contBonus === 5) {
+        push();
+        fill('#877B85');
+        ellipse(w, h * 45.5, 15);
+        pop();
+      } else if (contBonus === 6 || contBonus === 7 || contBonus === 8 ) {
+        push();
+        fill('#877B85');
+        ellipse(w, h * 45.5, 15);
+        ellipse(w + 25, h * 45.5, 15);
+        pop();
+      } else if (contBonus === 9 || contBonus === 10 || contBonus === 11 || contBonus === 12 || contBonus === 13) {
+        push();
+        fill('#877B85');
+        ellipse(w, h * 45.5, 15);
+        ellipse(w + 25, h * 45.5, 15);
+        ellipse(w + 50, h * 45.5, 15);
+        pop();
+      } else if (contBonus === 14 || contBonus === 15 || contBonus === 16 || contBonus === 17 || contBonus === 18) {
+        push();
+        fill('#877B85');
+        ellipse(w, h * 45.5, 15);
+        ellipse(w + 25, h * 45.5, 15);
+        ellipse(w + 50, h * 45.5, 15);
+        ellipse(w + 75, h * 45.5, 15);
+        pop();
+      }
+      ellipse(w + s, h * 45.5, 15);
+      s = 25 * i;
+    }
+    ///////////////////////////////////////////////////////////////
 
   //CONTATORE i DEL TEMPO
   if (frameCount % 50 == 0) { //multiplo di 50 incrementa i
