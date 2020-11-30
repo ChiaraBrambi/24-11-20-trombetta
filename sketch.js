@@ -208,6 +208,7 @@ function draw() {
   //TUTORIAL TROMBETTA + TESTI GIUSTO/SBAGLATO
   if (i == 0 || i == 2 || i == 4) {
     image(tut1Icon, w*10, h*24.5 , tut1Icon.width / 5.5, tut1Icon.height /  5.5);
+    tut2Icon.reset();
     text('Segui il ritmo degli altri',  w*10, h*31);
       let pronto = false;
     if(keyIsDown(ENTER)){
@@ -217,6 +218,7 @@ function draw() {
     image(tut2Icon,  w*10, h*24.5 , tut2Icon.width / 5.5 , tut2Icon.height / 5.5);
     text('Segui il ritmo degli altri',  w*10, h*31);
     let pronto = true;
+
     if(keyIsDown(ENTER)){
       text('CORRETTO',  w*10,h*33);
     }
