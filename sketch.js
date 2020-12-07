@@ -22,6 +22,16 @@ let input_utente = 200 //var utente usa la trobetta, preme bottone
 
 let opacità = 210 //opacità rettangolo tutorial
 let pronto //coordinzaione tutorial
+
+//variabili per DASPO
+let daspo = false; //variabile che dice se daspo è attiva in questo momento
+let daspo_counter = 0; //variabile che conta il numero di daspo
+let op = 0; //opacità rettangolo daspo
+let incremento_daspo = 0;
+let timeout_daspo;//variabile per riavviare la funzione Timeout del daspo
+let daspo_3, daspo_4, daspo_5;
+let gif_daspo;
+
 /////////////////////////////////////////////////////////////////////////
 
 function preload() {
@@ -31,6 +41,10 @@ function preload() {
   tut2Icon = loadImage("./assets/immagini/Tutorial_Trombetta2.gif"); //trombetta tutorial 1
   logor = loadImage("./assets/immagini/logopiccolo.png"); //logo ridotto
   freccia = loadImage("./assets/immagini/freccia.png");
+  daspo_3 = loadImage("./assets/immagini/daspo3.gif");
+  daspo_4 = loadImage("./assets/immagini/daspo4.gif");
+  daspo_5 = loadImage("./assets/immagini/daspo5.gif")
+
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -224,8 +238,71 @@ function draw() {
     }
   }
 
+  //DASPO
+    //daspo condizione
+    if (keyIsDown(ENTER) && i % 2 == 0 && i > 5) {
+      daspo = true;
+      } else if (keyIsDown(ENTER) && i % 2 != 0 && i > 5 && daspo != true) {
+      daspo = false;
+            op = 0;
+    }
+
+  //attivare funzioni daspo
+    if (daspo == true) {
+      daspoAttiva();
+    }
+
+    incremento_daspo = 3000 + (daspo_counter/46)*1000;
+    if (incremento_daspo > 5000){
+      incremento_daspo = 5000;
+    }
+
+    console.log("tempo daspo " + incremento_daspo)
+
+
+
+
   }
   ///////FINE DRAW/////////////////
+
+  //funzioni per attivare la daspo
+  function daspoAttiva() {
+    daspo_counter++;
+    op = 210;
+    alt = 1;
+
+    push();
+    rectMode(CORNER);
+    fill(255, 255, 255, op);
+    rect(0, 0, width, height);
+    pop();
+
+    if (incremento_daspo==3000){
+      gif_daspo = daspo_3
+    } else if (incremento_daspo==4000){
+      gif_daspo = daspo_4
+    } else if (incremento_daspo==5000){
+      gif_daspo = daspo_5
+    }
+
+
+    image(gif_daspo, width / 10, 3*height / 4, gif_daspo.width/2 , gif_daspo.height/2 );
+
+    timeout_daspo = setTimeout(daspoNonAttiva, incremento_daspo);
+  }
+
+  //funzione per disattivare la daspo cambiando la variabile
+  function daspoNonAttiva() {
+    daspo = false;
+  }
+
+  //riavvia il timer per daspo
+  function nonAttivafine(){
+      clearTimeout(timeout_daspo);
+  }
+
+
+
 
 
   // function SERIAL
